@@ -8,23 +8,23 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-	<title></title>
+    <title></title>
 </head>
 <body>
-	<form id="form1" runat="server">
-		<dx:ASPxComboBox ID="ASPxComboBox1" runat="server" EnableCallbackMode="true" CallbackPageSize="10"
-			IncrementalFilteringMode="Contains" ValueType="System.String" ValueField="OrderID"
-			OnItemsRequestedByFilterCondition="ASPxComboBox_OnItemsRequestedByFilterCondition_SQL"
-			OnItemRequestedByValue="ASPxComboBox_OnItemRequestedByValue_SQL" TextFormatString="{0} {1} {2}"
-			Width="400px" DropDownStyle="DropDown">
-			<Columns>
-				<dx:ListBoxColumn FieldName="ShipName" />
-				<dx:ListBoxColumn FieldName="ShipCity" />
-				<dx:ListBoxColumn FieldName="ShipRegion" />
-			</Columns>
-		</dx:ASPxComboBox>
-		<asp:SqlDataSource ID="SqlDataSource1" runat="server"
-			ConnectionString="<%$ ConnectionStrings:NORTHWINDConnectionString %>" />
-	</form>
+    <form id="form1" runat="server">
+        <dx:ASPxComboBox ID="ASPxComboBox1" runat="server" EnableCallbackMode="true" CallbackPageSize="10"
+            IncrementalFilteringMode="Contains" ValueType="System.String" ValueField="OrderID"
+            OnItemsRequestedByFilterCondition="ASPxComboBox_OnItemsRequestedByFilterCondition_SQL"
+            OnItemRequestedByValue="ASPxComboBox_OnItemRequestedByValue_SQL" TextFormatString="{0} {1} {2}"
+            Width="400px" DropDownStyle="DropDown">
+            <Columns>
+                <dx:ListBoxColumn FieldName="ShipName" />
+                <dx:ListBoxColumn FieldName="ShipCity" />
+                <dx:ListBoxColumn FieldName="ShipRegion" />
+            </Columns>
+        </dx:ASPxComboBox>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server"
+            ConnectionString="<%$ ConnectionStrings:NORTHWINDConnectionString %>" />
+    </form>
 </body>
 </html>
