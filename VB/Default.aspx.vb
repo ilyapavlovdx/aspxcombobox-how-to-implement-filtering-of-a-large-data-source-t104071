@@ -11,10 +11,7 @@ Partial Public Class _Default
 
     Protected Sub ASPxComboBox_OnItemsRequestedByFilterCondition_SQL(ByVal source As Object, ByVal e As ListEditItemsRequestedByFilterConditionEventArgs)
         Dim comboBox As ASPxComboBox = DirectCast(source, ASPxComboBox)
-        SqlDataSource1.SelectCommand = "SELECT [ShipName], [ShipCity], [ShipRegion], [OrderID] FROM 
-                (select [ShipName], [ShipCity], [ShipRegion], [OrderID], row_number()over(order by t.[ShipName]) as [rn] from [Orders] as t 
-                where (([ShipName] + ' ' + [ShipCity] + ' ' + [ShipRegion]) LIKE @filter)) as st where st.[rn] between @startIndex and @endIndex"
-
+        SqlDataSource1.SelectCommand = "SELECT [ShipName], [ShipCity], [ShipRegion], [OrderID] FROM (select [ShipName], [ShipCity], [ShipRegion], [OrderID], row_number()over(order by t.[ShipName]) as [rn] from [Orders] as t where (([ShipName] + ' ' + [ShipCity] + ' ' + [ShipRegion]) LIKE @filter)) as st where st.[rn] between @startIndex and @endIndex"
         SqlDataSource1.SelectParameters.Clear()
         SqlDataSource1.SelectParameters.Add("filter", TypeCode.String, String.Format("%{0}%", e.Filter))
         SqlDataSource1.SelectParameters.Add("startIndex", TypeCode.Int64, (e.BeginIndex + 1).ToString())
